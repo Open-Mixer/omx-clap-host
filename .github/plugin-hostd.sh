@@ -17,6 +17,6 @@ case $ref in
   *) echo "PLUGIN_HOSTD_REF is $ref: pin a release tag (vX.Y.Z) or a full commit, not a branch" >&2; exit 1 ;;
 esac
 git init -q "$dir"
-git -C "$dir" fetch -q --depth 1 https://github.com/FreeMixer/plugin-hostd "$want"
+git -C "$dir" fetch -q --depth 1 https://github.com/Open-Mixer/plugin-hostd "$want"
 git -C "$dir" checkout -q FETCH_HEAD
 git config --global --add safe.directory "$(readlink -f "$dir")"
