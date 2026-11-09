@@ -25,7 +25,7 @@ jobs:
       # omx-dsp's headers, which hosted_stage.h includes, and omx-contract's, which omx-dsp's name, from the OpenMixer
       # channel; clap_host.h's hosting codes are this tree's, src/omx_clap_core_vocabulary.h
       - name: Add the OpenMixer repository
-        uses: Open-Mixer/.github/.github/actions/add-openmixer@main
+        uses: Open-Mixer/.github/.github/actions/add-openmixer@openmixer-v1
 
       - name: Install omx-dsp-devel and omx-contract-devel from the OpenMixer channel
         run: |

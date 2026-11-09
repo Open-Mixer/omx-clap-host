@@ -63,7 +63,7 @@ jobs:
   # the checks every FreeMixer repository runs on what it publishes: commit messages, private references, no local copy
   # of either (the commit-msg hook the shared stub byte for byte), from Open-Mixer/.github and nowhere else
   public-sources:
-    uses: Open-Mixer/.github/.github/workflows/public-sources-check.yml@main
+    uses: Open-Mixer/.github/.github/workflows/public-sources-check.yml@openmixer-v1
 
   contract:
     name: data/ read back through omx-contract's reader, the committed headers and ts module its render
@@ -140,7 +140,7 @@ jobs:
       # its install script data/ (the hosting codes) installs with, from the OpenMixer channel; mod-host, the LV2 identity test's reference arm;
       # and omx-plugins-devel, whose omx_panel_description.h is the ABI test-panel-abi holds src/omx_clap_ext.h to
       - name: Add the OpenMixer repository
-        uses: Open-Mixer/.github/.github/actions/add-openmixer@main
+        uses: Open-Mixer/.github/.github/actions/add-openmixer@openmixer-v1
 
       - uses: actions/checkout@v4
 
@@ -155,7 +155,7 @@ jobs:
           command -v mod-host
 
       - name: Every file a comment can be written in opens with its licence
-        uses: Open-Mixer/.github/.github/actions/spdx-check@main
+        uses: Open-Mixer/.github/.github/actions/spdx-check@openmixer-v1
 
       # the units table and the JSON string writer are omx-contract's, the protocol plugin-hostd-protocol's: no copy of
       # either is in this tree (tests/no_contract_copy.py, tests/no_protocol_copy.py, each with its self test)
@@ -558,7 +558,7 @@ jobs:
       # its install script data/ (the hosting codes) installs with, from the OpenMixer channel; mod-host, the LV2 identity test's reference arm;
       # and omx-plugins-devel, whose omx_panel_description.h is the ABI test-panel-abi holds src/omx_clap_ext.h to
       - name: Add the OpenMixer repository
-        uses: Open-Mixer/.github/.github/actions/add-openmixer@main
+        uses: Open-Mixer/.github/.github/actions/add-openmixer@openmixer-v1
 
       - uses: actions/checkout@v4
 
@@ -614,7 +614,7 @@ jobs:
             lv2-devel lilv-devel sord binutils procps-ng util-linux dnf5-plugins
 
       - name: Add the OpenMixer repository
-        uses: Open-Mixer/.github/.github/actions/add-openmixer@main
+        uses: Open-Mixer/.github/.github/actions/add-openmixer@openmixer-v1
 
       - uses: actions/checkout@v4
 
@@ -657,7 +657,7 @@ jobs:
 
       # the spec's BuildRequires: omx-dsp-devel, and omx-contract-devel under it, come from the OpenMixer channel
       - name: Add the OpenMixer repository
-        uses: Open-Mixer/.github/.github/actions/add-openmixer@main
+        uses: Open-Mixer/.github/.github/actions/add-openmixer@openmixer-v1
 
       - name: Fetch plugin-hostd
         run: |
@@ -670,7 +670,7 @@ jobs:
         run: echo '%_without_check 1' >> ~/.rpmmacros
 
       - name: Build the plugin-hostd RPMs
-        uses: Open-Mixer/.github/.github/actions/build-rpm@main
+        uses: Open-Mixer/.github/.github/actions/build-rpm@openmixer-v1
         with:
           tree: /tmp/plugin-hostd
           out: plugin-hostd-rpms
@@ -684,7 +684,7 @@ jobs:
           dnf install -y --setopt=install_weak_deps=False plugin-hostd-rpms/plugin-hostd-devel-[0-9]*.noarch.rpm plugin-hostd-rpms/plugin-hostd-contract-[0-9]*.noarch.rpm
           pkg-config --modversion plugin-hostd
 
-      - uses: Open-Mixer/.github/.github/actions/build-rpm@main
+      - uses: Open-Mixer/.github/.github/actions/build-rpm@openmixer-v1
 
       - name: Check the file lists
         run: |
@@ -848,7 +848,7 @@ jobs:
       - name: Build the fake plugins the smoke test scans
         run: make tests/fake.clap tests/fake_synth.clap tests/crash.clap
 
-      - uses: Open-Mixer/.github/.github/actions/install-clean@main
+      - uses: Open-Mixer/.github/.github/actions/install-clean@openmixer-v1
         with:
           rpms: |
             rpms/omx-clap-core-[0-9]*.${{ matrix.arch }}.rpm
@@ -928,11 +928,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: Open-Mixer/.github/.github/actions/deb-deps@main
+      - uses: Open-Mixer/.github/.github/actions/deb-deps@openmixer-v1
 
       # the Build-Depends on libomxdsp-dev (and libomx-contract-dev under it) come from the OpenMixer channel
       - name: Add the OpenMixer repository
-        uses: Open-Mixer/.github/.github/actions/add-openmixer@main
+        uses: Open-Mixer/.github/.github/actions/add-openmixer@openmixer-v1
 
       - name: Fetch plugin-hostd
         run: .github/plugin-hostd.sh /tmp/plugin-hostd
@@ -940,7 +940,7 @@ jobs:
       # nocheck: plugin-hostd's tests and their build dependency omx-clap-host-tests stay out, so the channel's
       # libomx-clap-core1 is never installed under the packages this job builds. Its own CI runs its tests.
       - name: Build the plugin-hostd DEBs
-        uses: Open-Mixer/.github/.github/actions/build-deb@main
+        uses: Open-Mixer/.github/.github/actions/build-deb@openmixer-v1
         env:
           DEB_BUILD_PROFILES: nocheck
           DEB_BUILD_OPTIONS: nocheck
@@ -954,7 +954,7 @@ jobs:
           apt-get install -y --no-install-recommends ./plugin-hostd-debs/plugin-hostd-dev_*.deb ./plugin-hostd-debs/plugin-hostd-contract_*_all.deb
           pkg-config --modversion plugin-hostd
 
-      - uses: Open-Mixer/.github/.github/actions/build-deb@main
+      - uses: Open-Mixer/.github/.github/actions/build-deb@openmixer-v1
 
       # the protocol library and omx-contract's data the package depends on, from the channel, for the smoke test's container, which has only
       # the distribution

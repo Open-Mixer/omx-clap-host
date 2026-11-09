@@ -73,7 +73,7 @@ jobs:
 
       # src/preset_file.c, which every harness is built from, includes <omxcontract/omx_json_write.h>
       - name: Add the OpenMixer repository
-        uses: Open-Mixer/.github/.github/actions/add-openmixer@main
+        uses: Open-Mixer/.github/.github/actions/add-openmixer@openmixer-v1
 
       - name: Install omx-contract-devel from the OpenMixer channel
         run: dnf install -y --setopt=install_weak_deps=False --setopt=retries=10 'omx-contract-devel >= 3.12.0'
