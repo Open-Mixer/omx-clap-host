@@ -33,6 +33,16 @@ env:
   PROTOCOL_REF: v0.5.3
 
 jobs:
+  # no Fedora release written into a job: the cells come from check-matrix (rule 11-10, ruling D25)
+  fedora-cells:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github/workflows
+      - uses: Open-Mixer/.github/.github/actions/fedora-cells@openmixer-v1
+
   # The packages (and the jobs that need this one) run only on workflow_dispatch: a pull request or a push runs the tests
   # alone (owner 2026-11-09). release.yml builds on a v* tag; fast-release dispatches this workflow on a release head.
   changes:
