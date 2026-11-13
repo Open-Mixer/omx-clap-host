@@ -18,7 +18,7 @@ Build-Depends: debhelper-compat (= 13),
                pkgconf,
                python3
 Standards-Version: 4.6.2
-Homepage: https://github.com/FreeMixer/omx-clap-core
+Homepage: https://github.com/Open-Mixer/omx-clap-core
 Rules-Requires-Root: no
 
 Package: omx-clap-host
