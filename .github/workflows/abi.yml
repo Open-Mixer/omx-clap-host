@@ -62,7 +62,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: libomx-clap-core-abi
+          name: libomx-clap-core-abi-fc${{ matrix.cell.fedora }}-${{ matrix.cell.arch }}
           path: |
             build/new.abi
             build/abidiff.txt
