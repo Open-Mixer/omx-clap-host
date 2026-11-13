@@ -15,7 +15,7 @@ BuildRequires: pkgconfig
 # the protocol library at the release whose ports listen on 127.0.0.1 unless told otherwise
 BuildRequires: (plugin-hostd-protocol-devel >= 0.5.0 with plugin-hostd-protocol-devel < 0.6)
 # plugin-db's pin.h: the layout fingerprint pin_expect names, one implementation
-BuildRequires: (plugin-db-devel >= 0.3.0 with plugin-db-devel < 0.4)
+BuildRequires: (plugin-db-devel >= 0.4.0 with plugin-db-devel < 0.5)
 BuildRequires: (clap-devel >= 1.2.7 with clap-devel < 2)
 BuildRequires: pkgconfig(libcrypto)
 BuildRequires: (omx-dsp-devel >= 0.32.0 with omx-dsp-devel < 0.33)
