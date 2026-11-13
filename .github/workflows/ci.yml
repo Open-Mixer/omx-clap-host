@@ -61,7 +61,7 @@ jobs:
       - name: VERSION is the spec's Version and the newest debian/changelog entry
         run: make version-check
 
-  # the checks every FreeMixer repository runs on what it publishes: commit messages, private references, no local copy
+  # the checks every OpenMixer repository runs on what it publishes: commit messages, private references, no local copy
   # of either (the commit-msg hook the shared stub byte for byte), from Open-Mixer/.github and nowhere else
   public-sources:
     uses: Open-Mixer/.github/.github/workflows/public-sources-check.yml@openmixer-v1

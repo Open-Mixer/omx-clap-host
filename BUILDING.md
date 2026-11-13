@@ -43,7 +43,7 @@ command socket against `tests/socket_conformance.py` (a command of exactly
 the 1024-byte receive buffer, several commands in one write, one command over
 many writes, clients that leave mid-command, the size limit and a random
 chunking fuzz). What it checks is the protocol library the host links, which
-must carry mod-audio/mod-host#113 (the FreeMixer build of it does); CI runs it.
+must carry mod-audio/mod-host#113 (the OpenMixer build of it does); CI runs it.
 
     make install-tests DESTDIR=<root> PREFIX=/usr
 

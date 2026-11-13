@@ -7,7 +7,7 @@ name: fuzz
 # UndefinedBehaviorSanitizer and fuzzed for 60 s from its seed corpus; every mutant of fuzz/sabotage/ found at the check
 # it names; every check's own record met; the coverage witness held to its floor; the corpus current; and each harness
 # linked fully static. An input that crashes a harness is uploaded as the fuzz-findings artifact. Fedora's toolchain is
-# installed and, of the FreeMixer channel, omx-contract-devel alone: the preset reader the harnesses are built from
+# installed and, of the OpenMixer channel, omx-contract-devel alone: the preset reader the harnesses are built from
 # writes JSON strings through its one writer, <omxcontract/omx_json_write.h> (3.9.0).
 
 on:

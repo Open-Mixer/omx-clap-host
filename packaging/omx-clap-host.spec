@@ -5,7 +5,7 @@ Version:        0.31.0
 Release: 1%{?dist}
 License: GPL-3.0-or-later
 Summary: Use CLAP and LV2 plugins on a JACK or PipeWire rig, driven like mod-host
-URL: https://github.com/FreeMixer/omx-clap-core
+URL: https://github.com/Open-Mixer/omx-clap-core
 
 Source0: %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 
