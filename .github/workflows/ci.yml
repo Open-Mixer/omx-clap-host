@@ -89,8 +89,15 @@ jobs:
           git -C /tmp/omx-contract checkout -q FETCH_HEAD
           npm ci --prefix /tmp/omx-contract --omit=dev
 
+      - name: Fetch omx-clap-core's catalogs (the owner's Catalan)
+        run: |
+          set -eu
+          git init -q /tmp/omx-clap-core
+          git -C /tmp/omx-clap-core fetch -q --depth 1 https://github.com/Open-Mixer/omx-clap-core main
+          git -C /tmp/omx-clap-core checkout -q FETCH_HEAD
+
       - name: make test-contract
-        run: make test-contract OMX_CONTRACT_DIR=/tmp/omx-contract
+        run: make test-contract OMX_CONTRACT_DIR=/tmp/omx-contract OMX_CLAP_CORE_CATALOGS=/tmp/omx-clap-core/catalogs
 
   docs:
     name: make docs (the public headers are fully documented)
@@ -736,7 +743,7 @@ jobs:
             files "$rpm" > files.txt
             printf '%s\n' /usr/share/omx-contract/contract.d/3/omx-clap-core/MANIFEST.json /usr/share/omx-contract/contract.d/3/omx-clap-core/hosting.json /usr/share/omx-contract/contract.d/3/omx-clap-core/verbs.json \
               /usr/share/omx-contract/contract.d/3/omx-clap-core/hosting/clap.json /usr/share/omx-contract/contract.d/3/omx-clap-core/hosting/cost.json /usr/share/omx-contract/contract.d/3/omx-clap-core/hosting/features.json /usr/share/omx-contract/contract.d/3/omx-clap-core/hosting/latency.json /usr/share/omx-contract/contract.d/3/omx-clap-core/hosting/memory.json /usr/share/omx-contract/contract.d/3/omx-clap-core/hosting/output.json /usr/share/omx-contract/contract.d/3/omx-clap-core/hosting/override.json /usr/share/omx-contract/contract.d/3/omx-clap-core/hosting/patch.json /usr/share/omx-contract/contract.d/3/omx-clap-core/hosting/preset.json /usr/share/omx-contract/contract.d/3/omx-clap-core/hosting/provenance.json /usr/share/omx-contract/contract.d/3/omx-clap-core/hosting/realised.json /usr/share/omx-contract/contract.d/3/omx-clap-core/hosting/resource-hints.json /usr/share/omx-contract/contract.d/3/omx-clap-core/hosting/rt-safety.json /usr/share/omx-contract/contract.d/3/omx-clap-core/hosting/stability.json /usr/share/omx-contract/contract.d/3/omx-clap-core/hosting/state.json /usr/share/omx-contract/contract.d/3/omx-clap-core/hosting/topology.json /usr/share/omx-contract/contract.d/3/omx-clap-core/hosting/worker.json \
-              /usr/share/omx-clap-core/catalogs/ca.json /usr/share/licenses/omx-clap-core-contract/COPYING /usr/share/doc/omx-clap-core-contract/README.md | sort > expected.txt
+              /usr/share/licenses/omx-clap-core-contract/COPYING /usr/share/doc/omx-clap-core-contract/README.md | sort > expected.txt
             diff -u expected.txt files.txt
           done
           for pkg in omx-clap-core omx-clap-core-devel; do
