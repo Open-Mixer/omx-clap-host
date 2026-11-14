@@ -189,8 +189,6 @@ make test-lv2
 %license COPYING
 %doc README.md
 %{_datadir}/omx-contract/contract.d/3/omx-clap-core/
-%dir %{_datadir}/omx-clap-core
-%{_datadir}/omx-clap-core/catalogs/
 
 %files -n omx-clap-lv2-devel
 %license COPYING

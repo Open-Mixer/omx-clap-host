@@ -413,7 +413,7 @@ The two rendered headers install with the other core headers under
 `share/omx-clap-core/ts/`, which `pkg-config --variable=tsdir omx-clap-core`
 names: a TypeScript build copies `omx-clap-core-hosting.js` and its `.d.ts`
 from there, or points a path at them; no npm package is published.
-`make test-contract OMX_CONTRACT_DIR=<omx-contract checkout>` installs them into
+`make test-contract OMX_CONTRACT_DIR=<omx-contract checkout> [OMX_CLAP_CORE_CATALOGS=<omx-clap-core>/catalogs]` installs them into
 a directory of its own beside omx-contract's own files, reads them back through
 omx-contract's reader and renders the package's own files with
 `omx-contract render --package omx-clap-core`, framed by the `render` word of

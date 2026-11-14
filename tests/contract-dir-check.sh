@@ -27,7 +27,7 @@ work=$(dirname "$dir")
 ocv=$(sed -n 's/^  "version": "\([0-9.]*\)",$/\1/p' "$oc/package.json")
 sh "$oc/tools/install-contract-dir.sh" -x codes.json -x scale-vectors.json omx-contract "$ocv" 3 "$oc/data" "$dir" data
 
-$tool validate --contract-dir "$dir" --needs "omx-clap-core@>= $version" --catalogs catalogs
+$tool validate --contract-dir "$dir" --needs "omx-clap-core@>= $version"
 
 # every impl link of the package's items names code that reads the item (contract.source.unread names the code and the
 # link), found from this tree's root
